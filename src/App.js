@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Start from './components/Startquiz';
+import QuizRules from './components/Rules';
+import QuizQuestion from './components/quizQuestion';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  state={
+    page:"start",
+  };
+  onStartQuizPress=()=>{
+    this.setState({page:"rule"});
+  };
+
+  onExitRulePress=()=>{
+    this.setState({page:"start"});
+  }
+
+  onContinueRulePress=()=>{
+    this.setState({page:"quizQuestion"})
+  }
+
+
+  render(){
+    return(
+      <>
+      {
+        this.state.page=="start" && <Start onStartQuizPress={this.onStartQuizPress}/>
+      }
+      {
+        this.state.page=="rule" && <QuizRules onExitRulePress={this.onExitRulePress} onContinueRulePress={this.onContinueRulePress}/>
+      }
+
+      {
+        this.state.page=="quizQuestion" && <QuizQuestion/>
+      }
+      </>
+
+    )
+  }
 }
-
 export default App;
