@@ -1,4 +1,3 @@
-
 * {
   margin: 0px;
   padding: 0px;
@@ -209,7 +208,7 @@ section .option-list .option:hover {
   align-items: center;
 }
 
-.option-list .option .icon-ticks {
+/* .option-list .option .icon-ticks {
   border-color: #23903c;
   color: #23903c;
   background: #d4edda;
@@ -226,21 +225,21 @@ section .option-list .option:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.option-list .option.correct {
+/* .option-list .option.correct {
   border-color: #23903c;
   color: #23903c;
   background: #d4edda;
-}
+} */
 
-.option-list .option.wrong {
+/* .option-list .option.wrong {
   color: #a42834;
   background-color: #f8d7da;
   border-color: #a42834;
-}
+} */
 
-.option-list .option.disable {
+/* .option-list .option.disable {
   pointer-events: none;
 }
 
@@ -248,7 +247,7 @@ section .option-list .option:hover {
   color: #a42834;
   background-color: #f8d7da;
   border-color: #a42834;
-}
+} */
 
 .quiz-box footer {
   height: 60px;
@@ -347,9 +346,9 @@ footer .next-btn:hover {
 }
 
 .result-box {
-  opacity: 0;
+  /* opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.9);
+  transform: translate(-50%, -50%) scale(0.9); */
 }
 
 .show-resultbox {

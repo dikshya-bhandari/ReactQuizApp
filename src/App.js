@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import Start from './components/Startquiz';
 import QuizRules from './components/Rules';
 import QuizQuestion from './components/quizQuestion';
+import Result from './components/Result';
 import './App.css'
 
 class App extends Component{
   state={
     page:"start",
+    correct:0,
+    total:0,
   };
   onStartQuizPress=()=>{
     this.setState({page:"rule"});
@@ -20,6 +23,18 @@ class App extends Component{
     this.setState({page:"quizQuestion"})
   }
 
+  onShowResultPress=(correct,total)=>{
+    this.setState({page:"result", correct:correct,total:total});
+  }
+
+  onReplayPress=()=>{
+    this.setState({page:"quizQuestion"});
+  };
+
+  onQuitPress=()=>{
+    this.setState({page:"start"});
+  };
+
 
   render(){
     return(
@@ -32,7 +47,11 @@ class App extends Component{
       }
 
       {
-        this.state.page=="quizQuestion" && <QuizQuestion/>
+        this.state.page=="quizQuestion" && <QuizQuestion showResult={this.onShowResultPress}/>
+      }
+
+      {
+        this.state.page=="result" && <Result correct={this.state.correct} total={this.state.total} onReplayPress={this.onReplayPress} onQuitPress={this.onQuitPress}/>
       }
       </>
 
